@@ -1,0 +1,44 @@
+DATA-TYPES:
+1.Text Type:	str
+2.Numeric Types:	int, float, complex
+3.Sequence Types:	list, tuple, range
+4.Mapping Type:	dict
+5.Set Types:	set, frozenset
+6.Boolean Type:	bool
+7.Binary Types:	bytes, bytearray, memoryview
+8.None Type:	NoneType
+
+STRINGS:
+1.Strings:
+a. muiltiline string
+b. Strings are Arrays
+c. Looping through a String
+d. String Length
+e. Check in String
+f. Check in String use if statement
+g. Check not in String
+h. Check not in String use if statement
+
+2.Slicing-Strings:
+a. Slicing
+b. Slicing from start
+c. Slicing from end
+d. Negative index
+e. Reverse String
+
+3.Format String
+age = 36
+txt = f"My name is John, I am {age} {age:.2f} {20*56}"
+print(txt)
+
+4.Escape Characters
+a. Single Quote: \'
+b. Backslash: \\
+c. New Line: \n
+d. Carriage Return: \r
+e. Tab: \t
+f. Backspace: \b
+g. Form Feed: \f
+h. Vertical Tab: \v
+i. Octal Value: \101
+j. Hexadecimal Value: \x41
