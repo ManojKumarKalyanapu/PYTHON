@@ -1,44 +1,1312 @@
 DATA-TYPES:
-1.Text Type:	str
-2.Numeric Types:	int, float, complex
-3.Sequence Types:	list, tuple, range
-4.Mapping Type:	dict
-5.Set Types:	set, frozenset
-6.Boolean Type:	bool
-7.Binary Types:	bytes, bytearray, memoryview
-8.None Type:	NoneType
+| Category  | Data Type                          | Example                      |
+| --------- | ---------------------------------- | ---------------------------- |
+| Text      | `str`                              | `"Hello"`                    |
+| Numeric   | `int`, `float`, `complex`          | `10`, `3.14`, `3+4j`         |
+| Sequence  | `list`, `tuple`, `range`           | `[1,2]`, `(1,2)`, `range(5)` |
+| Mapping   | `dict`                             | `{"key": "value"}`           |
+| Set       | `set`, `frozenset`                 | `{1,2}`, `frozenset([1,2])`  |
+| Boolean   | `bool`                             | `True`, `False`              |
+| Binary    | `bytes`, `bytearray`, `memoryview` | `b"hi"`                      |
+| None Type | `NoneType`                         | `None`                       |
 
-STRINGS:
-1.Strings:
-a. muiltiline string
-b. Strings are Arrays
-c. Looping through a String
-d. String Length
-e. Check in String
-f. Check in String use if statement
-g. Check not in String
-h. Check not in String use if statement
+Syntax and Declaration
+x = "Hello"          # str
+y = 10               # int
+z = 3.14             # float
+is_active = True     # bool
+nums = [1, 2, 3]     # list
+names = ("Alice",)   # tuple
+person = {"name": "Bob", "age": 25}  # dict
+unique = {1, 2, 3}   # set
 
-2.Slicing-Strings:
-a. Slicing
-b. Slicing from start
-c. Slicing from end
-d. Negative index
-e. Reverse String
+Type Conversion (Casting)
+int("10")         # ➜ 10
+str(123)          # ➜ '123'
+float("3.14")     # ➜ 3.14
+list("abc")       # ➜ ['a', 'b', 'c']
+tuple([1, 2])     # ➜ (1, 2)
+set([1, 1, 2])    # ➜ {1, 2}
 
-3.Format String
-age = 36
-txt = f"My name is John, I am {age} {age:.2f} {20*56}"
-print(txt)
+STRINGS
+Strings are immutable sequences of Unicode characters.
+Use len(s) to get string length.
 
-4.Escape Characters
-a. Single Quote: \'
-b. Backslash: \\
-c. New Line: \n
-d. Carriage Return: \r
-e. Tab: \t
-f. Backspace: \b
-g. Form Feed: \f
-h. Vertical Tab: \v
-i. Octal Value: \101
-j. Hexadecimal Value: \x41
+s = "Hello World"
+s = 'Single quotes work too'
+s = """Triple quotes for multi-line"""
+
+a.Slice Strings
+s = "Python"
+
+s[0]        # 'P'
+s[1:4]      # 'yth' → start at 1, end before 4
+s[:3]       # 'Pyt'
+s[2:]       # 'thon'
+s[-1]       # 'n' → last character
+s[::-1]     # 'nohtyP' → reversed
+
+Slice Syntax: string[start:stop:step]
+
+b.Escape Characters
+| Escape | Meaning         | Example            |
+| ------ | --------------- | ------------------ |
+| `\'`   | Single quote    | `'I\'m happy'`     |
+| `\"`   | Double quote    | `"He said \"hi\""` |
+| `\\`   | Backslash       | `"C:\\Users\\"`    |
+| `\n`   | New line        | `"Hello\nWorld"`   |
+| `\t`   | Tab             | `"A\tB"`           |
+| `\r`   | Carriage return | `"Hello\rHi"`      |
+| `\b`   | Backspace       | `"abc\b"`          |
+
+c.Format Strings
+name = "Alice"
+age = 30
+f"Name: {name}, Age: {age}"
+# ➜ 'Name: Alice, Age: 30'
+
+d.Common String Methods
+| Method            | Description                              | Example                          |
+| ----------------- | ---------------------------------------- | -------------------------------- |
+| `s.lower()`       | Lowercase all characters                 | `"HELLO".lower()` → `'hello'`    |
+| `s.upper()`       | Uppercase all characters                 | `"hi".upper()` → `'HI'`          |
+| `s.title()`       | Capitalize first letter of each word     | `"hello world".title()`          |
+| `s.strip()`       | Remove leading/trailing whitespace       | `"  hi  ".strip()`               |
+| `s.replace(a, b)` | Replace a with b                         | `"yes no".replace("no", "yes")`  |
+| `s.split()`       | Split string into list                   | `"a,b,c".split(",")`             |
+| `s.find(sub)`     | First index of substring or -1           | `"hello".find("e")` → `1`        |
+| `s.count(sub)`    | Count occurrences of substring           | `"banana".count("a")` → `3`      |
+| `s.startswith(x)` | Returns `True` if string starts with `x` | `"Python".startswith("Py")`      |
+| `s.endswith(x)`   | Returns `True` if string ends with `x`   | `"file.txt".endswith(".txt")`    |
+| `s.isdigit()`     | Checks if all characters are digits      | `"123".isdigit()` → `True`       |
+| `s.isalpha()`     | Checks if all are alphabet letters       | `"abc".isalpha()` → `True`       |
+| `s.isalnum()`     | Checks alphanumeric                      | `"abc123".isalnum()`             |
+| `' '.join(list)`  | Join list of strings                     | `"-".join(["a", "b"])` → `'a-b'` |
+
+OPERATORS
+
+1.Arithmetic
+| Operator | Name           | Example  | Result |
+| -------- | -------------- | -------- | ------ |
+| `+`      | Addition       | `5 + 2`  | `7`    |
+| `-`      | Subtraction    | `5 - 2`  | `3`    |
+| `*`      | Multiplication | `5 * 2`  | `10`   |
+| `/`      | Division       | `5 / 2`  | `2.5`  |
+| `//`     | Floor Division | `5 // 2` | `2`    |
+| `%`      | Modulus        | `5 % 2`  | `1`    |
+| `**`     | Exponentiation | `2 ** 3` | `8`    |
+
+2.Assignment Operators
+| Operator | Description             | Example            |
+| -------- | ----------------------- | ------------------ |
+| `=`      | Assign                  | `x = 10`           |
+| `+=`     | Add and assign          | `x += 5`           |
+| `-=`     | Subtract and assign     | `x -= 3`           |
+| `*=`     | Multiply and assign     | `x *= 2`           |
+| `/=`     | Divide and assign       | `x /= 4`           |
+| `//=`    | Floor divide and assign | `x //= 2`          |
+| `%=`     | Modulus and assign      | `x %= 2`           |
+| `**=`    | Exponent and assign     | `x **= 2`          |
+| `&=`, \` | =`, `^=`, `>>=`, `<<=\` | Bitwise assign ops |
+
+3. Comparison Operators
+| Operator | Description              | Example  | Result |
+| -------- | ------------------------ | -------- | ------ |
+| `==`     | Equal to                 | `3 == 3` | `True` |
+| `!=`     | Not equal to             | `3 != 5` | `True` |
+| `>`      | Greater than             | `5 > 2`  | `True` |
+| `<`      | Less than                | `2 < 5`  | `True` |
+| `>=`     | Greater than or equal to | `5 >= 5` | `True` |
+| `<=`     | Less than or equal to    | `3 <= 4` | `True` |
+
+4. Logical Operators
+| Operator | Description                  | Example          | Result  |
+| -------- | ---------------------------- | ---------------- | ------- |
+| `and`    | True if both true            | `True and False` | `False` |
+| `or`     | True if at least one is true | `True or False`  | `True`  |
+| `not`    | Invert boolean               | `not True`       | `False` |
+
+5. Identity Operators
+| Operator | Description                           | Example      | Result       |
+| -------- | ------------------------------------- | ------------ | ------------ |
+| `is`     | True if same **object in memory**     | `x is y`     | `True/False` |
+| `is not` | True if **not** same object in memory | `x is not y` | `True/False` |
+
+6. Membership Operators
+| Operator | Description                      | Example              | Result |
+| -------- | -------------------------------- | -------------------- | ------ |
+| `in`     | True if value exists             | `'a' in 'apple'`     | `True` |
+| `not in` | True if value does **not** exist | `'z' not in 'apple'` | `True` |
+
+7. Bitwise Operators
+| Operator | Name         | Example  | Binary Example            | Result |     
+| -------- | ------------ | -------- | ------------------------- | ------ | 
+| `&`      | AND          | `5 & 3`  | `101 & 011` → `001`       | `1`    |      
+| `|`      | OR           | `5 | 3`  | `101 | 011` → `111`       | `7`    | 
+| `^`      | XOR          | `5 ^ 3`  | `101 ^ 011` → `110`       | `6`    |       
+| `~`      | NOT (invert) | `~5`     | `~0101` → `-6` (2's comp) | `-6`   |      
+| `<<`     | Left shift   | `5 << 1` | `101 << 1` → `1010`       | `10`   |       
+| `>>`     | Right shift  | `5 >> 1` | `101 >> 1` → `10`         | `2`    |     
+
+Summary Table
+| Category   | Example        | Symbol(s)         |              |
+| ---------- | -------------- | ----------------- | ------------ |
+| Arithmetic | `+`, `-`, `*`  | `+ - * / // % **` |              |
+| Assignment | `x += 1`       | `= += -= *= ...`  |              |
+| Comparison | `x == y`       | `== != > < >= <=` |              |
+| Logical    | `x and y`      | `and or not`      |              |
+| Identity   | `x is y`       | `is`, `is not`    |              |
+| Membership | `'a' in 'abc'` | `in`, `not in`    |              |
+| Bitwise    | `x & y`        | \`&               | ^ \~ << >>\` |
+
+LIST
+
+1. What is a List?
+A list is an ordered, mutable (changeable) collection of elements.
+Defined with square brackets [].
+my_list = [1, 2, 3, "hello", True]
+
+2. Access List Items
+my_list = ['a', 'b', 'c']
+my_list[0]     # ➜ 'a'  (indexing starts at 0)
+my_list[-1]    # ➜ 'c'  (last item)
+my_list[1:3]   # ➜ ['b', 'c'] (slicing)
+
+3. Change List Items
+my_list[1] = "new"
+# ➜ ['a', 'new', 'c']
+
+4. Add Items to a List
+ # Add to end
+my_list.append("d")
+
+# Add at specific index
+my_list.insert(1, "x")
+
+# Add multiple items
+my_list.extend(["e", "f"])
+
+5. Remove Items from a List
+# Remove by value
+my_list.remove("x")
+
+# Remove by index
+my_list.pop(2)   # returns the removed item
+
+# Delete without returning
+del my_list[0]
+
+# Clear entire list
+my_list.clear()
+
+6. Loop Through a List
+for item in my_list:
+    print(item)
+
+for i in range(len(my_list)):
+    print(my_list[i])
+
+7. Sort Lists
+nums = [3, 1, 4, 2]
+
+nums.sort()             # Ascending
+nums.sort(reverse=True) # Descending
+
+# Custom sort
+words = ["apple", "banana", "cherry"]
+words.sort(key=len)
+
+# Non-destructive sort
+sorted_list = sorted(nums)
+
+8. Copy Lists
+copy1 = my_list.copy()
+copy2 = list(my_list)
+copy3 = my_list[:]
+Don't use copy3 = my_list → this copies the reference.
+
+9. Join (Combine) Lists
+list1 = [1, 2]
+list2 = [3, 4]
+
+# Method 1
+combined = list1 + list2
+
+# Method 2
+list1.extend(list2)
+
+10. Common List Methods
+| Method         | Description                         | Example            |
+| -------------- | ----------------------------------- | ------------------ |
+| `append(x)`    | Add item at the end                 | `l.append(5)`      |
+| `insert(i, x)` | Insert at index `i`                 | `l.insert(1, "x")` |
+| `extend(iter)` | Add elements from another list      | `l.extend([4, 5])` |
+| `remove(x)`    | Remove first occurrence of `x`      | `l.remove("a")`    |
+| `pop([i])`     | Remove and return item at index `i` | `l.pop(2)`         |
+| `clear()`      | Remove all items                    | `l.clear()`        |
+| `index(x)`     | Return first index of value `x`     | `l.index(3)`       |
+| `count(x)`     | Count number of `x` in list         | `l.count(2)`       |
+| `sort()`       | Sort list in place                  | `l.sort()`         |
+| `reverse()`    | Reverse list in place               | `l.reverse()`      |
+| `copy()`       | Return shallow copy of list         | `l.copy()`         |
+
+TUPLE 
+
+1. What is a Tuple?
+A tuple is an ordered, immutable collection of items.
+Defined with round brackets ().
+my_tuple = (1, 2, 3)
+Can store mixed data types: (1, "apple", True)
+
+2. Access Tuple Items
+t = ('a', 'b', 'c')
+
+t[0]     # ➜ 'a' (indexing)
+t[-1]    # ➜ 'c' (last item)
+t[1:3]   # ➜ ('b', 'c') (slicing)
+Note: Tuples support indexing and slicing just like lists.
+
+3. Update Tuples (Workaround)
+t = (1, 2, 3)
+temp = list(t)
+temp[1] = 99
+t = tuple(temp)
+# ➜ t = (1, 99, 3)
+
+4. Unpack Tuples
+t = (10, 20, 30)
+a, b, c = t
+# ➜ a = 10, b = 20, c = 30
+
+# With * operator
+t = (1, 2, 3, 4, 5)
+a, *b, c = t
+# ➜ a = 1, b = [2, 3, 4], c = 5
+
+5. Loop Through a Tuple
+t = ('a', 'b', 'c')
+
+for item in t:
+    print(item)
+
+for i in range(len(t)):
+    print(t[i])
+
+6. Join Tuples
+t1 = (1, 2)
+t2 = (3, 4)
+
+t3 = t1 + t2  # ➜ (1, 2, 3, 4)
+
+t4 = t1 * 3   # ➜ (1, 2, 1, 2, 1, 2)
+
+7. Tuple Methods
+| Method      | Description                        | Example            |
+| ----------- | ---------------------------------- | ------------------ |
+| `.count(x)` | Returns how many times `x` appears | `t.count(1)`       |
+| `.index(x)` | Returns first index of value `x`   | `t.index("apple")` |
+
+Tuple vs List
+| Feature     | Tuple      | List         |
+| ----------- | ---------- | ------------ |
+| Syntax      | `(1, 2)`   | `[1, 2]`     |
+| Mutable     | ❌ No       | ✅ Yes     |
+| Ordered     | ✅ Yes      | ✅ Yes     |
+| Methods     | Fewer      | Many         |
+| Performance | ✅ Faster   | ❌ Slower  |
+| Use case    | Fixed data | Dynamic data |
+
+SET 
+
+What is a Set?
+A set is an unordered, unindexed, and unchangeable (but mutable in terms of adding/removing items) collection.
+No duplicate values allowed.
+
+1.Create a Set
+my_set = {1, 2, 3}
+empty_set = set()  # NOT {}
+
+2.Access Set Items
+Sets do not support indexing.
+
+for item in my_set:
+    print(item)
+
+3.Add Items to a Set
+my_set.add(4)                # Add a single item
+my_set.update([5, 6, 7])     # Add multiple items (list, tuple, set)
+
+4.Remove Items from a Set
+my_set.remove(2)        # Removes item, raises error if not found
+my_set.discard(2)       # Removes item, NO error if not found
+my_set.pop()            # Removes a random item
+my_set.clear()          # Empties the set
+del my_set              # Deletes the set entirely
+
+5.Join Sets
+a = {1, 2}
+b = {2, 3}
+a.union(b)         # Returns new set: {1, 2, 3}
+a.update(b)        # Adds items from b into a
+
+6.Set Methods
+| Method                   | Description                         |
+| ------------------------ | ----------------------------------- |
+| `add()`                  | Add single item                     |
+| `update()`               | Add multiple items                  |
+| `remove()`               | Remove item (error if not found)    |
+| `discard()`              | Remove item (no error if not found) |
+| `pop()`                  | Remove random item                  |
+| `clear()`                | Empty the set                       |
+| `union()`                | Combine sets                        |
+| `intersection()`         | Common items                        |
+| `difference()`           | Items only in one set               |
+| `symmetric_difference()` | Items not in both                   |
+| `issubset()`             | Check if set is subset              |
+| `issuperset()`           | Check if set is superset            |
+| `isdisjoint()`           | Check if no common items            |
+| `copy()`                 | Copy a set                          |
+
+DICTIONARIES
+
+What is a Dictionary?
+A dictionary is an unordered collection of key-value pairs.
+Keys must be unique and immutable.
+Defined with { key: value } pairs.
+
+1.Create a Dictionary
+my_dict = {
+    "name": "John",
+    "age": 25,
+    "city": "New York"
+}
+
+2.Access Dictionary Items
+print(my_dict["name"])        # Output: John
+print(my_dict.get("age"))     # Output: 25 (safe access)
+
+3.Change Dictionary Items
+my_dict["age"] = 30
+
+4.Add Items to Dictionary
+my_dict["email"] = "john@example.com"
+
+5.Remove Items from Dictionary
+my_dict.pop("city")        # Removes 'city'
+my_dict.popitem()          # Removes last inserted item
+del my_dict["age"]         # Deletes 'age'
+my_dict.clear()            # Empties the dictionary
+
+6.Loop Through a Dictionary
+for key in my_dict:
+    print(key)                     # Only keys
+
+for value in my_dict.values():
+    print(value)                  # Only values
+
+for key, value in my_dict.items():
+    print(key, value)             # Key-value pairs
+
+7.Copy a Dictionary
+new_dict = my_dict.copy()
+# OR
+new_dict = dict(my_dict)
+
+8.Nested Dictionaries
+nested_dict = {
+    "person1": {"name": "Alice", "age": 28},
+    "person2": {"name": "Bob", "age": 30}
+}
+print(nested_dict["person1"]["name"])  # Output: Alice
+
+9.Dictionary Methods
+| Method         | Description                   |
+| -------------- | ----------------------------- |
+| `get(key)`     | Returns value or None         |
+| `keys()`       | Returns all keys              |
+| `values()`     | Returns all values            |
+| `items()`      | Returns key-value pairs       |
+| `update(dict)` | Merges another dict           |
+| `pop(key)`     | Removes specified key         |
+| `popitem()`    | Removes last item             |
+| `clear()`      | Empties dictionary            |
+| `copy()`       | Returns a shallow copy        |
+| `setdefault()` | Sets value if key not present |
+
+CONDITIONAL STATEMENTS
+
+1.Basic Structure
+if condition:
+    # block of code if condition is True
+elif another_condition:
+    # block of code if another_condition is True
+else:
+    # block of code if all above conditions are False
+
+2.One-Line if
+if x > 5: print("x is greater than 5")
+
+3.One-Line if else (Ternary)
+result = "Even" if x % 2 == 0 else "Odd"
+print(result)
+
+4.Multiple Conditions
+if age > 18 and age < 60:
+    print("Working age")
+
+MATCH STATEMENT 
+
+1.Basic Syntax
+match variable:
+    case pattern1:
+        # code block
+    case pattern2:
+        # code block
+    case _:
+        # default case (like 'else')
+
+example:
+status_code = 404
+
+match status_code:
+    case 200:
+        print("OK")
+    case 404:
+        print("Not Found")
+    case 500:
+        print("Server Error")
+    case _:
+        print("Unknown Status")
+
+2.Match with Variable Binding
+point = (3, 4)
+match point:
+    case (0, 0):
+        print("Origin")
+    case (x, 0):
+        print(f"X-axis at {x}")
+    case (0, y):
+        print(f"Y-axis at {y}")
+    case (x, y):
+        print(f"Point at ({x}, {y})")
+
+3.Match with Conditions (Guards)
+number = 10
+match number:
+    case x if x > 0:
+        print("Positive number")
+    case x if x < 0:
+        print("Negative number")
+    case _:
+        print("Zero")
+
+WHILE LOOPS
+
+Definition
+A while loop executes a block of code as long as a condition is True.
+
+1.Basic Syntax
+while condition:
+    # code block
+
+Simple Example:
+i = 1
+while i <= 5:
+    print(i)
+    i += 1
+
+2.while with else
+i = 1
+while i < 4:
+    print(i)
+    i += 1
+else:
+    print("Loop ended")
+
+3.Break the Loop
+while True:
+    name = input("Enter your name: ")
+    if name == "exit":
+        break
+
+4.Skip Iteration using continue
+i = 0
+while i < 5:
+    i += 1
+    if i == 3:
+        continue
+    print(i)
+
+FOR LOOPS 
+Definition
+A for loop is used to iterate over sequences like lists, tuples, strings, sets, or dictionaries.
+
+1.Basic Syntax
+for variable in sequence:
+    # code block
+
+Example: Looping through a list
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+
+2.Loop through a string
+for char in "hello":
+    print(char)
+
+3.Using range()
+for i in range(5):  # 0 to 4
+    print(i)
+
+for i in range(1, 6):  # 1 to 5
+    print(i)
+
+for i in range(0, 10, 2):  # step by 2
+    print(i)
+
+4.With else
+for i in range(3):
+    print(i)
+else:
+    print("Loop completed")
+
+5.Using break
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
+
+6.Using continue
+for i in range(5):
+    if i == 2:
+        continue
+    print(i)
+
+7.Nested Loops
+for i in range(2):
+    for j in range(3):
+        print(f"i={i}, j={j}")
+
+8.Looping through a dictionary
+person = {"name": "Alice", "age": 25}
+for key in person:
+    print(key, person[key])
+
+# OR
+for key, value in person.items():
+    print(key, value)
+
+FUNCTIONS
+
+Definition:
+A function is a reusable block of code that performs a specific task. It can take inputs (parameters), process them, and return a result.
+
+1.Basic Syntax
+def function_name(parameters):
+    # code block
+    return value
+
+2.Parameters vs Arguments
+Parameter: variable in the function definition
+Argument: actual value passed to the function
+
+3.Default Parameters
+def greet(name="Guest"):
+    return f"Hello, {name}!"
+
+4.Arbitrary Arguments (*args)
+Used to accept any number of positional arguments.
+
+def add_all(*numbers):
+    return sum(numbers)
+
+print(add_all(1, 2, 3, 4))
+
+5.Arbitrary Keyword Arguments (**kwargs)
+Used to accept any number of keyword arguments.
+
+def print_info(**info):
+    for key, value in info.items():
+        print(key, value)
+
+print_info(name="Alice", age=25)
+
+6.Lambda Functions (Anonymous Functions)
+uses anonymous function inside another function
+square = lambda x: x * x
+print(square(5))  # 25
+
+7.Recursive Function
+def factorial(n):
+    if n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))  # 120
+
+8.Pass Statement (empty function)
+def todo():
+    pass
+
+OOP
+
+A class is a blueprint for creating objects.
+An object is an instance of a class.
+
+1.Class Definition & Object Creation
+class Person:
+    def __init__(self, name, age):  # Constructor
+        self.name = name
+        self.age = age
+
+    def greet(self):
+        print(f"Hi, I am {self.name}")
+
+# Creating an object
+p1 = Person("Alice", 25)
+p1.greet()
+
+2.__init__() Method
+The constructor is called automatically when an object is created.
+def __init__(self, name):
+    self.name = name
+
+3.self Keyword
+Used to refer to the instance of the class.
+
+4.Modify Object Properties
+p1.age = 30
+
+5.Delete Object or Property
+del p1.age
+del p1
+
+6.Inheritance
+Allows a class to inherit properties/methods from another class.
+class Animal:
+    def speak(self):
+        print("Makes sound")
+
+class Dog(Animal):
+    def speak(self):
+        print("Barks")
+
+d = Dog()
+d.speak()  # Barks
+
+7. super 
+super() can be used to call the parent class constructor or methods.
+class Dog(Animal):
+    def __init__(self):
+        super().__init__()
+
+8.Polymorphism
+Same method name behaves differently depending on the object.
+class Cat:
+    def sound(self):
+        print("Meow")
+
+class Dog:
+    def sound(self):
+        print("Bark")
+
+def animal_sound(animal):
+    animal.sound()
+
+animal_sound(Cat())
+animal_sound(Dog())
+
+9.Iterators
+An object which implements the __iter__() and __next__() methods.
+class Count:
+    def __init__(self, max):
+        self.max = max
+        self.num = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.num < self.max:
+            self.num += 1
+            return self.num
+        else:
+            raise StopIteration
+
+c = Count(3)
+for i in c:
+    print(i)
+
+10.Scope
+Local Scope: inside a function
+Global Scope: outside all functions
+Nonlocal Scope: used in nested functions
+
+x = 10  # global
+
+def outer():
+    x = 5  # enclosed
+    def inner():
+        nonlocal x
+        x = 3
+    inner()
+    print(x)
+
+outer()
+print(x)
+
+MODULES
+A module is a Python file (.py) containing definitions and statements (functions, classes, variables) that you can reuse.
+
+1. Creating a Module
+# mymodule.py
+
+def greet(name):
+    print(f"Hello, {name}!")
+
+person = {
+    "name": "Alice",
+    "age": 30
+}
+
+2. Importing a Module
+import mymodule
+
+mymodule.greet("Manoj")
+print(mymodule.person["name"])
+
+3. Import with Alias
+import mymodule as mm
+
+mm.greet("Kumar")
+
+4. Import Specific Items
+from mymodule import greet, person
+
+greet("Hari")
+print(person["age"])
+
+5. Built-in Modules
+import math
+print(math.sqrt(25))
+
+import datetime
+print(datetime.datetime.now())
+
+6. Using dir() to Explore Module Attributes
+import math
+print(dir(math))  # Lists all functions & variables in the module
+
+7. Packages (Folders with Modules)
+myproject/
+│
+├── mypackage/
+│   ├── __init__.py
+│   └── operations.py
+
+operations.py:
+def add(a, b):
+    return a + b
+
+usage:
+from mypackage import operations
+print(operations.add(5, 3))
+
+8. Using pip to Install External Modules
+pip install requests
+
+import requests
+res = requests.get("https://example.com")
+print(res.status_code)
+
+DATE TIME 
+
+1. Importing datetime module
+import datetime
+
+2. Current Date and Time
+now = datetime.datetime.now()
+print(now)  # 2025-07-31 15:30:10.123456
+
+today = datetime.date.today()
+print(today)  # 2025-07-31
+
+3. Create a Specific Date or Time
+d = datetime.date(2025, 12, 25)
+t = datetime.time(14, 30, 0)
+
+print(d)  # 2025-12-25
+print(t)  # 14:30:00
+
+4. Accessing Components
+now = datetime.datetime.now()
+print(now.year)
+print(now.month)
+print(now.day)
+print(now.hour)
+print(now.minute)
+print(now.second)
+
+5. Formatting Dates (strftime)
+now = datetime.datetime.now()
+print(now.strftime("%Y-%m-%d"))
+print(now.strftime("%d/%m/%Y"))
+print(now.strftime("%A, %B %d, %Y"))
+
+| Code | Meaning         | Example   |
+| ---- | --------------- | --------- |
+| `%Y` | Year (4 digits) | 2025      |
+| `%y` | Year (2 digits) | 25        |
+| `%m` | Month (01-12)   | 07        |
+| `%d` | Day (01-31)     | 31        |
+| `%H` | Hour (00-23)    | 15        |
+| `%I` | Hour (01-12)    | 03        |
+| `%p` | AM/PM           | PM        |
+| `%M` | Minute (00-59)  | 30        |
+| `%S` | Second (00-59)  | 10        |
+| `%A` | Weekday Name    | Wednesday |
+| `%B` | Month Name      | July      |
+
+6. Parsing Strings into Dates (strptime)
+date_str = "2025-07-31"
+d = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+print(d)  # 2025-07-31 00:00:00
+
+7. Date Arithmetic with timedelta
+from datetime import timedelta
+
+today = datetime.date.today()
+tomorrow = today + timedelta(days=1)
+yesterday = today - timedelta(days=1)
+
+print(tomorrow)
+print(yesterday)
+
+8. Difference Between Dates
+d1 = datetime.date(2025, 12, 25)
+d2 = datetime.date(2025, 1, 1)
+
+diff = d1 - d2
+print(diff.days)  # 358
+
+9. Getting Unix Timestamp
+now = datetime.datetime.now()
+timestamp = now.timestamp()
+print(timestamp)
+
+10. From Timestamp to Date
+ts = 1753910412
+dt = datetime.datetime.fromtimestamp(ts)
+print(dt)
+
+MATH 
+
+1. Importing the Module
+import math
+
+2. Basic Math Functions
+| Function         | Description               | Example                    |
+| ---------------- | ------------------------- | -------------------------- |
+| `math.sqrt(x)`   | Square root               | `math.sqrt(25)` → `5.0`    |
+| `math.pow(x, y)` | x raised to the power y   | `math.pow(2, 3)` → `8.0`   |
+| `math.exp(x)`    | Exponential of x (e^x)    | `math.exp(1)` → `2.718...` |
+| `math.log(x)`    | Natural log (base e)      | `math.log(10)`             |
+| `math.log10(x)`  | Log base 10               | `math.log10(100)` → `2.0`  |
+| `math.log2(x)`   | Log base 2                | `math.log2(8)` → `3.0`     |
+| `math.ceil(x)`   | Round up                  | `math.ceil(4.2)` → `5`     |
+| `math.floor(x)`  | Round down                | `math.floor(4.8)` → `4`    |
+| `math.trunc(x)`  | Truncate (remove decimal) | `math.trunc(4.7)` → `4`    |
+| `math.fabs(x)`   | Absolute value            | `math.fabs(-5)` → `5.0`    |
+
+3. Rounding
+math.ceil(5.1)   # 6
+math.floor(5.9)  # 5
+round(5.678, 2)  # 5.68 (built-in, not from math module)
+
+4. Trigonometry Functions (radians)
+math.sin(x)
+math.cos(x)
+math.tan(x)
+math.asin(x)
+math.acos(x)
+math.atan(x)
+
+5. Constants
+| Constant   | Description                        |
+| ---------- | ---------------------------------- |
+| `math.pi`  | 3.141592653589793                  |
+| `math.e`   | 2.718281828459045 (Euler’s number) |
+| `math.tau` | 6.283185307179586 (2π)             |
+| `math.inf` | Infinity                           |
+| `math.nan` | Not a Number                       |
+
+6. Factorial and Combinations
+math.factorial(5)        # 120
+math.comb(5, 2)          # 10
+math.perm(5, 2)          # 20
+
+JSON
+
+1. Importing the Module
+import json
+
+2. Serialize: Convert Python → JSON
+# Python dict
+data = {"name": "Alice", "age": 30, "isAdmin": True}
+
+# Convert to JSON string
+json_string = json.dumps(data)
+print(json_string)
+# Output: {"name": "Alice", "age": 30, "isAdmin": true}
+
+🔹 dumps() = Dump to string
+🔹 dump() = Dump to file
+
+# Save to file
+with open("data.json", "w") as f:
+    json.dump(data, f)
+
+3. Deserialize: Convert JSON → Python
+# JSON string
+json_string = '{"name": "Alice", "age": 30, "isAdmin": true}'
+
+# Convert to Python dict
+data = json.loads(json_string)
+print(data['name'])  # Alice
+
+🔹 loads() = Load from string
+🔹 load() = Load from file
+
+# Load from file
+with open("data.json", "r") as f:
+    data = json.load(f)
+
+4. Common Python → JSON Mappings
+| Python           | JSON         |
+| ---------------- | ------------ |
+| `dict`           | object       |
+| `list`, `tuple`  | array        |
+| `str`            | string       |
+| `int`, `float`   | number       |
+| `True` / `False` | true / false |
+| `None`           | null         |
+
+5. Pretty Printing
+json_string = json.dumps(data, indent=4)
+print(json_string)
+
+6. Sort Keys
+json_string = json.dumps(data, sort_keys=True)
+
+7. Encoding Non-Serializable Types
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+def encode_person(obj):
+    if isinstance(obj, Person):
+        return {"name": obj.name}
+    raise TypeError("Type not serializable")
+
+p = Person("Bob")
+json_string = json.dumps(p, default=encode_person)
+print(json_string)
+
+8. Decode into Custom Object
+def decode_person(dct):
+    return Person(dct['name'])
+
+person = json.loads('{"name": "Bob"}', object_hook=decode_person)
+
+REGEX 
+
+1. Importing re module
+import re
+
+2. Basic Functions
+| Function        | Description                             |
+| --------------- | --------------------------------------- |
+| `re.search()`   | Searches for a match anywhere in string |
+| `re.match()`    | Checks match only at the beginning      |
+| `re.findall()`  | Returns all matches as a list           |
+| `re.finditer()` | Returns match objects iterator          |
+| `re.sub()`      | Replaces matches with string            |
+| `re.split()`    | Splits string by matches                |
+| `re.compile()`  | Compiles regex pattern for reuse        |
+
+3. Common Patterns
+| Pattern  | Matches                       |        |
+| -------- | ----------------------------- | ------ |
+| `.`      | Any character except newline  |        |
+| `\d`     | Digit (0–9)                   |        |
+| `\D`     | Non-digit                     |        |
+| `\w`     | Word char (a–z, A–Z, 0–9, \_) |        |
+| `\W`     | Non-word character            |        |
+| `\s`     | Whitespace                    |        |
+| `\S`     | Non-whitespace                |        |
+| `^`      | Start of string               |        |
+| `$`      | End of string                 |        |
+| `[...]`  | Set of characters             |        |
+| `[^...]` | Not in set                    |        |
+| \`(a     | b)\`                          | a or b |
+| `()`     | Group                         |        |
+
+4. Quantifiers
+| Pattern | Meaning         | Example Match                       |
+| ------- | --------------- | ----------------------------------- |
+| `*`     | 0 or more       | `"a*"` → `''`, `'aaa'`              |
+| `+`     | 1 or more       | `"a+"` → `'a'`, `'aaa'`             |
+| `?`     | 0 or 1          | `"a?"` → `''`, `'a'`                |
+| `{n}`   | Exactly n       | `"a{3}"` → `'aaa'`                  |
+| `{n,}`  | n or more       | `"a{2,}"` → `'aa'`, `'aaa'`         |
+| `{n,m}` | Between n and m | `"a{1,3}"` → `'a'`, `'aa'`, `'aaa'` |
+
+5. Anchors and Boundaries
+| Pattern | Meaning           |
+| ------- | ----------------- |
+| `\b`    | Word boundary     |
+| `\B`    | Not word boundary |
+| `^`     | Start of string   |
+| `$`     | End of string     |
+
+6. Examples
+re.search(r"\d+", "Age: 35")       # Match digits
+re.findall(r"\b\w{4}\b", "This is test line")  # Words with 4 letters
+re.sub(r"\s+", "-", "Hello   World")  # Replace spaces with dash
+
+7. Flags
+| Flag            | Use                                  |
+| --------------- | ------------------------------------ |
+| `re.IGNORECASE` | `re.I` – Case insensitive            |
+| `re.MULTILINE`  | `re.M` – `^`, `$` match at each line |
+| `re.DOTALL`     | `re.S` – `.` matches newlines        |
+| `re.VERBOSE`    | `re.X` – Allow comments & whitespace |
+
+pattern = re.compile(r"\d+", re.IGNORECASE)
+
+8. Match Object Methods
+| Method     | Description           |
+| ---------- | --------------------- |
+| `.group()` | Return matched string |
+| `.start()` | Start index of match  |
+| `.end()`   | End index of match    |
+| `.span()`  | Tuple of (start, end) |
+
+TRY AND EXCEPT 
+try and except blocks are used for exception handling in Python. They allow you to catch and handle runtime errors gracefully.
+
+Basic Syntax
+try:
+    # code that might raise an error
+except SomeException:
+    # code to handle the error
+
+example 
+try:
+    x = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+
+Catching Multiple Exceptions
+try:
+    num = int("abc")
+except ValueError:
+    print("Invalid input!")
+except TypeError:
+    print("Type error!")
+
+Catch All Exceptions
+try:
+    print(10 / 0)
+except Exception as e:
+    print("An error occurred:", e)
+
+else Block (runs if no exception)
+try:
+    print("No error")
+except:
+    print("Error!")
+else:
+    print("Success!")
+
+finally Block (always runs)
+try:
+    x = 1 / 1
+except:
+    print("Error!")
+finally:
+    print("This will always run.")
+
+Raise Your Own Exception
+x = -5
+if x < 0:
+    raise ValueError("Negative value not allowed")
+
+| Exception           | Description                     |
+| ------------------- | ------------------------------- |
+| `ZeroDivisionError` | Division by zero                |
+| `ValueError`        | Invalid value                   |
+| `TypeError`         | Invalid type                    |
+| `IndexError`        | Index out of range              |
+| `KeyError`          | Dictionary key not found        |
+| `FileNotFoundError` | File does not exist             |
+| `AttributeError`    | Invalid object attribute access |
+
+USER INPUT
+Accepts user input as a string.
+Always returns a string, even if the user enters a number.
+
+Basic input() Syntax
+input("Prompt message")
+
+Convert Input to Integer or Float
+age = int(input("Enter your age: "))     # Converts to integer
+height = float(input("Enter your height: "))  # Converts to float
+
+Multiple Inputs (Split)
+x, y = input("Enter two numbers: ").split()
+print("X:", x, "Y:", y)
+With type conversion:
+x, y = map(int, input("Enter two numbers: ").split())
+print("Sum:", x + y)
+
+Input with List
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+print(numbers)
+
+| Task                     | Code Example                            |
+| ------------------------ | --------------------------------------- |
+| Take string input        | `s = input("Enter string: ")`           |
+| Take int input           | `n = int(input("Enter number: "))`      |
+| Multiple space-separated | `a, b = input().split()`                |
+| Convert to list of ints  | `lst = list(map(int, input().split()))` |
+
+FILE HANDLING 
+
+1.Opening a File
+file = open("filename.txt", "mode")
+
+| Mode  | Description                   |
+| ----- | ----------------------------- |
+| `'r'` | Read (default)                |
+| `'w'` | Write (creates or truncates)  |
+| `'a'` | Append                        |
+| `'x'` | Create (fails if file exists) |
+| `'b'` | Binary mode                   |
+| `'t'` | Text mode (default)           |
+| `'+'` | Read and write                |
+
+Reading Files
+f = open("file.txt", "r")
+print(f.read())          # Read entire file
+print(f.read(5))         # Read first 5 characters
+print(f.readline())      # Read one line
+print(f.readlines())     # Read all lines (as list)
+f.close()
+
+Writing Files
+Overwrites the file if it exists.
+f = open("file.txt", "w")
+f.write("Hello, world!")
+f.close()
+
+Appends to the end of the file.
+f = open("file.txt", "a")
+f.write("Adding new content.")
+f.close()
+
+Using with Statement (Auto Closes File)
+with open("file.txt", "r") as f:
+    data = f.read()
+
+with open("file.txt", "w") as f:
+    f.write("Safe write")
+
+Check if File Exists
+import os
+
+if os.path.exists("file.txt"):
+    print("File found!")
+else:
+    print("Not found.")
+
+Delete a File
+import os
+os.remove("file.txt")
+
+Delete Folder
+os.rmdir("foldername")
+
+| Task             | Code                         |
+| ---------------- | ---------------------------- |
+| Open for reading | `open("file.txt", "r")`      |
+| Open for writing | `open("file.txt", "w")`      |
+| Read file        | `f.read()`                   |
+| Read line        | `f.readline()`               |
+| Write file       | `f.write("text")`            |
+| With block       | `with open(...) as f:`       |
+| Check exists     | `os.path.exists("file.txt")` |
+| Delete file      | `os.remove("file.txt")`      |
+| Delete folder    | `os.rmdir("foldername")`     |
+
+
+Threads in Python
+Threads allow a program to run multiple operations concurrently (at the same time) in the same process. Each thread runs independently but shares the same memory space. Python uses the threading module for multithreading.
+
+Use Case: Good for I/O-bound tasks like file operations, network requests, or waiting for user input.
+
+Blocking in Python
+Blocking means a function or operation stops the execution of the program until it completes. For example, time.sleep() blocks further code from running until the time is up.
+
+By default: Python is blocking
+Most standard Python operations (like file I/O, network I/O, or time.sleep()) are blocking. That means the program waits for the current task to finish before moving on.
+
+| Technique              | Description                                                                 |
+| ---------------------- | --------------------------------------------------------------------------- |
+| **`threading` module** | Runs multiple threads to handle tasks in parallel (suitable for I/O-bound). |
+| **`multiprocessing`**  | Runs tasks in separate processes (suitable for CPU-bound tasks).            |
+| **`asyncio`**          | Provides non-blocking, asynchronous programming using `async` / `await`.    |
+| **External libraries** | E.g., `aiohttp` (for async HTTP), `trio`, or `twisted`.                     |
+
+What is an async function?
+An async function is a function that runs asynchronously, meaning it can pause and resume execution (without blocking other code).
+It is defined using async def and used with await for non-blocking I/O.
+
+import asyncio
+
+async def say_hello():
+    print("Hello")
+    await asyncio.sleep(1)  # pauses here without blocking
+    print("World")
+
+
+Why use async functions?
+Run multiple tasks concurrently without using threads.
+
+Great for I/O-bound tasks: like network requests, database access, file operations.
+
+Keeps apps (e.g., web servers) responsive.
+
+| Term        | Description                                                            |
+| ----------- | ---------------------------------------------------------------------- |
+| `async def` | Defines an asynchronous function.                                      |
+| `await`     | Pauses the function until the awaited task is complete (non-blocking). |
+| `asyncio`   | Python's built-in library for writing asynchronous code.               |
+
+Two async tasks running concurrently
+import asyncio
+
+async def task1():
+    print("Task 1 started")
+    await asyncio.sleep(2)
+    print("Task 1 done")
+
+async def task2():
+    print("Task 2 started")
+    await asyncio.sleep(1)
+    print("Task 2 done")
+
+async def main():
+    await asyncio.gather(task1(), task2())
+
+asyncio.run(main())
